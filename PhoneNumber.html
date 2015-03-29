@@ -1,0 +1,72 @@
+<head>
+  <title>PhoneNumber</title>
+</head>
+
+<body>
+<div class="text-left">{{> loginButtons}}</div>
+<div class="text-center">
+	<h1>Phone Number Management</h1>
+    <div>
+		{{>inputPhoneNumber}}
+    </div>
+</div>
+
+<div class="container text-center">
+		{{>agent}}
+</div>
+
+<div class="row top-buffer container-fluid ">         
+  <table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>Chua gui tin nhan</th>
+        <th>Da gui tin nhan</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{>listPhoneNumber}}</td>
+        <td>{{>listPhoneNumberAreSent}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+
+<template name="inputPhoneNumber">
+	<p>
+		<input type="text" id="phoneNumberBox" placeholder="Enter your phone number">
+	</p>
+</template>
+
+<template name="agent">
+	<h3>Chon nha mang</h3>
+	<select class="agent">
+		<option selected>All</option>
+		<option>Viettel</option>
+		<option>Vinaphone</option>
+		<option>Mobifone</option>
+	</select>
+</template>
+
+<template name="listPhoneNumber">
+	{{#each listPhoneNumber}}
+	<div class="notYetSent">
+		{{>phoneNumber}}
+	</div>
+	{{/each}}
+</template>
+
+<template name="listPhoneNumberAreSent">
+	{{#each listPhoneNumberAreSent}}
+	<div class="isSent">
+		{{>phoneNumber}}
+	</div>
+	{{/each}}
+</template>
+
+<template name="phoneNumber">
+	<p>
+		<strong>{{phoneNumber}}</strong>
+	</p>
+</template>
